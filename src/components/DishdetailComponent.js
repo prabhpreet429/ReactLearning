@@ -5,11 +5,6 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody,
 
 class DishDetail extends Component {
 
-  constructor(props) {
-      super(props);
-
-
-      }
 
       renderComments(comments){
          if (comments != null) {
@@ -36,28 +31,30 @@ class DishDetail extends Component {
        
       );
     } else {
-      return <div></div>;
+      return (<div></div>);
     }
   }
       render() {
         
-        let selectedDish = this.props.selectedDish;
+        let selectedDish = this.props.dish;
      
         if (selectedDish != null)
           return(
+            <div className="container">
             <div className="row">
                 <div  className="col-12 col-md-5 m-1">
-              <Card>
+                <Card>
                   <CardImg top src={selectedDish.image} alt={selectedDish.name} />
                   <CardBody>
                     <CardTitle>{selectedDish.name}</CardTitle>
                     <CardText>{selectedDish.description}</CardText>
                   </CardBody>
-              </Card>
+                </Card>
               </div>
               <div  className="col-12 col-md-5 m-1">
                   <h4>Comments</h4>
                   {this.renderComments(selectedDish.comments)}
+              </div>
               </div>
               </div>
           );
@@ -69,4 +66,4 @@ class DishDetail extends Component {
         
       }
 }
-    export default DishDetail;
+export default DishDetail;
